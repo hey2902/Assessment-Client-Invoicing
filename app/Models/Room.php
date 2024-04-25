@@ -17,9 +17,4 @@ class Room extends Model
     {
         return $this->hasMany(Unit::class);
     }
-
-    public function calculateRent()
-    {
-        return $this->rent;
-    }
 }

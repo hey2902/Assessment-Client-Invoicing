@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    protected $fillable = ['name', 'address', 'rent'];
+    protected $fillable = ['name', 'address'];
 
     public function client()
     {
@@ -17,10 +17,4 @@ class Property extends Model
     {
         return $this->hasMany(Room::class);
     }
-
-    public function calculateRent()
-    {
-        return $this->rent;
-    }
-
 }

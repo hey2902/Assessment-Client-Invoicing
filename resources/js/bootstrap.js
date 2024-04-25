@@ -1,12 +1,4 @@
-// resources/js/bootstrap.js
+import axios from 'axios';
+window.axios = axios;
 
-// Import libraries or modules
-import Vue from 'vue';
-
-// Load Vue components globally
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-// Example of additional JavaScript initialization or configuration
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize any JavaScript functionality here
-});
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

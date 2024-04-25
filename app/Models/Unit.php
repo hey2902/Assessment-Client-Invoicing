@@ -12,10 +12,5 @@ class Unit extends Model
     {
         return $this->belongsTo(Room::class);
     }
-
-    public function calculateRent()
-    {
-        return $this->rent;
-    }
 }
 

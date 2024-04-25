@@ -10,12 +10,14 @@
         <h1>Client Management</h1>
         <form @submit.prevent="addClient">
             <input type="text" v-model="newClient.name" placeholder="Name" required>
+            <input type="email" v-model="newClient.email" placeholder="Email" required>
+            <input type="text" v-model="newClient.phone" placeholder="Phone" required>
             <button type="submit">Add Client</button>
         </form>
 
         <ul>
             <li v-for="client in clients" :key="client.id">
-                {{ client.name }}
+                {{ client.name }} - {{ client.email }} - {{ client.phone }}
                 <button @click="editClient(client)">Edit</button>
                 <button @click="deleteClient(client.id)">Delete</button>
             </li>
@@ -29,7 +31,7 @@
             el: '#app',
             data: {
                 clients: [],
-                newClient: { name: '' }
+                newClient: { name: '', email: '', phone: '' }
             },
             mounted() {
                 this.fetchClients();

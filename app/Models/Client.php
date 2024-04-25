@@ -12,22 +12,4 @@ class Client extends Model
     {
         return $this->hasMany(Property::class);
     }
-
-    public function calculateMonthlyPayment()
-    {
-        $totalRent = 0;
-
-        foreach ($this->properties as $property) {
-            $totalRent += $property->calculateRent();
-            foreach ($property->rooms as $room) {
-                $totalRent += $room->calculateRent();
-                foreach ($room->units as $unit) {
-                    $totalRent += $unit->calculateRent();
-                }
-            }
-        }
-
-        return $totalRent;
-    }
-
 }
